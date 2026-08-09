@@ -1,10 +1,10 @@
-# 🥤 Solar Coca-Cola Data Platform
+# Solar Coca-Cola Data Platform
 
 Projeto End-to-End de Engenharia de Dados desenvolvido como case de portfólio, simulando um ambiente corporativo de dados inspirado na operação da Solar Coca-Cola.
 
 > **Aviso:** este é um projeto educacional e de portfólio, desenvolvido com dados sintéticos. Não é um projeto oficial da Solar Coca-Cola e não utiliza dados confidenciais ou proprietários da empresa.
 
-## 🎯 Objetivo
+## Objetivo
 
 Construir uma plataforma moderna de dados capaz de simular o fluxo completo de informações de uma operação comercial e logística, desde a ingestão dos dados até a disponibilização de indicadores executivos no Power BI.
 
@@ -19,7 +19,7 @@ O projeto contempla dados de:
 - Entregas
 - Centros de distribuição
 
-## 🏗️ Arquitetura
+## Arquitetura
 
 O fluxo implementado segue a arquitetura:
 
@@ -55,7 +55,7 @@ Dashboard Executivo
 - Git
 - GitHub
 
-## 🔄 Pipeline de Dados
+## Pipeline de Dados
 
 ### 1. Ingestão
 
@@ -81,7 +81,7 @@ O dbt é utilizado para organizar a camada analítica, incluindo:
 - Testes de integridade referencial
 - Documentação e lineage
 
-## ⭐ Modelo Dimensional
+## Modelo Dimensional
 
 O modelo analítico utiliza Star Schema.
 
@@ -98,7 +98,7 @@ O modelo analítico utiliza Star Schema.
 
 O modelo foi desenvolvido para facilitar análises comerciais e consumo pelo Power BI.
 
-## 🧪 Qualidade dos Dados
+## Qualidade dos Dados
 
 O projeto possui testes automatizados no dbt para validação de:
 
@@ -111,7 +111,7 @@ Resultado da validação executada:
 
 **18 testes executados com sucesso.**
 
-## 📊 Power BI
+## Power BI
 
 O projeto inclui um Dashboard Executivo de Vendas com indicadores como:
 
@@ -136,11 +136,11 @@ Também foram implementados filtros interativos por:
 - Vendedor
 - Período
 
-## 📸 Dashboard
+## Dashboard
 
 ![Dashboard Executivo de Vendas](imagens/Captura%20de%20tela%202026-08-09%20131150.png)
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```text
 solar-coca-cola-data-platform/
