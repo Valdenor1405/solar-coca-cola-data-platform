@@ -1,0 +1,96 @@
+{
+  "clientes": {
+    "rows": 3000,
+    "columns": [
+      "cliente_id",
+      "codigo_cliente",
+      "razao_social",
+      "segmento",
+      "cidade",
+      "uf",
+      "data_cadastro",
+      "ativo"
+    ]
+  },
+  "produtos": {
+    "rows": 80,
+    "columns": [
+      "produto_id",
+      "sku",
+      "descricao",
+      "categoria",
+      "marca",
+      "custo_unitario",
+      "preco_lista",
+      "ativo"
+    ]
+  },
+  "vendedores": {
+    "rows": 60,
+    "columns": [
+      "vendedor_id",
+      "matricula",
+      "nome",
+      "cd_id",
+      "meta_mensal_base",
+      "ativo"
+    ]
+  },
+  "centros_distribuicao": {
+    "rows": 5,
+    "columns": [
+      "cd_id",
+      "nome_cd",
+      "cidade",
+      "uf",
+      "regiao"
+    ]
+  },
+  "vendas": {
+    "rows": 25000,
+    "columns": [
+      "venda_id",
+      "data_venda",
+      "cliente_id",
+      "produto_id",
+      "vendedor_id",
+      "quantidade",
+      "desconto_pct",
+      "preco_unitario",
+      "valor_bruto",
+      "valor_liquido",
+      "cd_id"
+    ]
+  },
+  "estoque": {
+    "rows": 400,
+    "columns": [
+      "cd_id",
+      "produto_id",
+      "quantidade_estoque",
+      "estoque_minimo",
+      "data_atualizacao"
+    ]
+  },
+  "entregas": {
+    "rows": 10000,
+    "columns": [
+      "entrega_id",
+      "venda_id",
+      "cd_id",
+      "data_prevista",
+      "data_entrega",
+      "dias_atraso",
+      "status_entrega"
+    ]
+  },
+  "metas": {
+    "rows": 480,
+    "columns": [
+      "mes_referencia",
+      "vendedor_id",
+      "cd_id",
+      "meta_valor"
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+version: 2
+
+models:
+
+  - name: dim_clientes
+    columns:
+      - name: cliente_id
+        data_tests:
+          - not_null
+          - unique
+
+  - name: dim_produtos
+    columns:
+      - name: produto_id
+        data_tests:
+          - not_null
+          - unique
+
+  - name: dim_vendedores
+    columns:
+      - name: vendedor_id
+        data_tests:
+          - not_null
+          - unique
+
+  - name: dim_centros_distribuicao
+    columns:
+      - name: cd_id
+        data_tests:
+          - not_null
+          - unique
+
+  - name: fct_vendas
+    columns:
+
+      - name: venda_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: cliente_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_clientes')
+                field: cliente_id
+
+      - name: produto_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_produtos')
+                field: produto_id
+
+      - name: vendedor_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_vendedores')
+                field: vendedor_id
+
+      - name: cd_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_centros_distribuicao')
+                field: cd_id

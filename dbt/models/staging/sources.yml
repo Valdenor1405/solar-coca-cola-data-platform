@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: silver
+    description: "Camada Silver do Solar Data Platform registrada no Unity Catalog"
+    catalog: dbw_solar_dev_001
+    schema: silver
+
+    tables:
+      - name: centros_distribuicao
+      - name: clientes
+      - name: entregas
+      - name: estoque
+      - name: metas
+      - name: produtos
+      - name: vendas
+      - name: vendedores
