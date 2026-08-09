@@ -41,7 +41,7 @@ Power BI
 ↓  
 Dashboard Executivo
 
-## 🛠️ Tecnologias
+## Tecnologias
 
 - Microsoft Azure
 - Azure Data Factory
