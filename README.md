@@ -1,33 +1,164 @@
-# Solar Data Platform — Laboratório Azure
+# 🥤 Solar Coca-Cola Data Platform
 
-Projeto educacional de Engenharia de Dados inspirado no cenário de uma grande distribuidora de bebidas.
-**Não contém dados internos ou proprietários da Solar Coca-Cola. Todos os dados são sintéticos.**
+Projeto End-to-End de Engenharia de Dados desenvolvido como case de portfólio, simulando um ambiente corporativo de dados inspirado na operação da Solar Coca-Cola.
 
-## Stack-alvo
-Azure Data Factory → ADLS Gen2 → Azure Databricks (PySpark/Delta Lake) → dbt → Power BI
-com Git/Azure DevOps e, posteriormente, Terraform.
+> **Aviso:** este é um projeto educacional e de portfólio, desenvolvido com dados sintéticos. Não é um projeto oficial da Solar Coca-Cola e não utiliza dados confidenciais ou proprietários da empresa.
 
-## Camadas
-- `landing`: arquivos recebidos das fontes
-- `bronze`: dados brutos persistidos
-- `silver`: dados tratados e conformados
-- `gold`: modelos analíticos
-- `archive`: histórico/arquivamento
-- `logs`: logs operacionais
+## 🎯 Objetivo
 
-## Dados sintéticos
-- 3.000 clientes
-- 80 produtos
-- 60 vendedores
-- 5 centros de distribuição fictícios
-- 25.000 registros de vendas
-- 400 posições de estoque
-- 10.000 entregas
-- metas mensais por vendedor
+Construir uma plataforma moderna de dados capaz de simular o fluxo completo de informações de uma operação comercial e logística, desde a ingestão dos dados até a disponibilização de indicadores executivos no Power BI.
 
-## Primeiro exercício
-1. Faça upload das pastas/arquivos de `data/landing/` para o container `landing` no ADLS Gen2.
-2. Crie o Azure Data Factory no resource group `rg-solar-dev`.
-3. Configure um Linked Service para o ADLS Gen2.
-4. Construa o primeiro pipeline parametrizado `PL_INGESTAO_LANDING_BRONZE`.
-5. Copie dados da landing para bronze preservando a origem.
+O projeto contempla dados de:
+
+- Vendas
+- Clientes
+- Produtos
+- Vendedores
+- Metas comerciais
+- Estoque
+- Entregas
+- Centros de distribuição
+
+## 🏗️ Arquitetura
+
+O fluxo implementado segue a arquitetura:
+
+Data Sources  
+↓  
+Azure Data Factory  
+↓  
+Azure Data Lake Storage Gen2  
+↓  
+Databricks / PySpark  
+↓  
+Camadas Bronze e Silver  
+↓  
+dbt  
+↓  
+Modelo Dimensional / Gold  
+↓  
+Power BI  
+↓  
+Dashboard Executivo
+
+## 🛠️ Tecnologias
+
+- Microsoft Azure
+- Azure Data Factory
+- Azure Data Lake Storage Gen2
+- Azure Databricks
+- Apache Spark / PySpark
+- Delta Lake
+- dbt
+- SQL
+- Power BI
+- Git
+- GitHub
+
+## 🔄 Pipeline de Dados
+
+### 1. Ingestão
+
+O Azure Data Factory é responsável pela orquestração da ingestão dos arquivos da camada Landing para o Data Lake.
+
+### 2. Bronze
+
+Os dados são armazenados preservando sua estrutura original, permitindo rastreabilidade e reprocessamento.
+
+### 3. Silver
+
+Databricks e PySpark são utilizados para limpeza, tipagem, padronização e transformação dos dados.
+
+### 4. Transformação com dbt
+
+O dbt é utilizado para organizar a camada analítica, incluindo:
+
+- Sources
+- Staging models
+- Dimensões
+- Tabela fato
+- Testes de qualidade
+- Testes de integridade referencial
+- Documentação e lineage
+
+## ⭐ Modelo Dimensional
+
+O modelo analítico utiliza Star Schema.
+
+### Tabela Fato
+
+`fct_vendas`
+
+### Dimensões
+
+- `dim_clientes`
+- `dim_produtos`
+- `dim_vendedores`
+- `dim_centros_distribuicao`
+
+O modelo foi desenvolvido para facilitar análises comerciais e consumo pelo Power BI.
+
+## 🧪 Qualidade dos Dados
+
+O projeto possui testes automatizados no dbt para validação de:
+
+- Valores nulos
+- Unicidade de chaves
+- Integridade referencial
+- Relacionamentos entre fato e dimensões
+
+Resultado da validação executada:
+
+**18 testes executados com sucesso.**
+
+## 📊 Power BI
+
+O projeto inclui um Dashboard Executivo de Vendas com indicadores como:
+
+- Faturamento Total
+- Total de Vendas
+- Ticket Médio
+- Quantidade Vendida
+- Evolução do Faturamento
+- Faturamento por Centro de Distribuição
+- Faturamento por Estado
+- Faturamento por Categoria
+- Top Produtos
+- Faturamento por Segmento de Cliente
+- Faturamento por Vendedor
+- Meta x Realizado
+- Percentual de Atingimento da Meta
+
+Também foram implementados filtros interativos por:
+
+- Centro de Distribuição
+- Categoria
+- Vendedor
+- Período
+
+## 📸 Dashboard
+
+![Dashboard Executivo de Vendas](imagens/Captura%20de%20tela%202026-08-09%20131150.png)
+
+## 📁 Estrutura do Projeto
+
+```text
+solar-coca-cola-data-platform/
+│
+├── azure-devops/
+├── data/
+│   └── landing/
+├── dbt/
+│   └── models/
+│       ├── staging/
+│       └── marts/
+├── docs/
+├── imagens/
+├── infrastructure/
+│   └── terraform/
+├── notebooks/
+│   └── databricks/
+├── pipelines/
+│   └── adf/
+├── dashboard_executivo_vendas.pbix
+└── README.md
